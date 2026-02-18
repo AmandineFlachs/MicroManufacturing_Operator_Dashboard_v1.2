@@ -15,7 +15,7 @@ st.title("🏭 Smart Micro-Manufacturing Operator Dashboard")
 # Data loading - assumes data.csv is in the same directory as app.py
 @st.cache_data
 def load_data():
-    df = pd.read_csv('Manufacturing_data.csv')
+    df = pd.read_csv('data.csv')
     df = df.rename(columns={'Timestamp': 'DateTime'})
     df['DateTime'] = pd.to_datetime(df['DateTime'])
     df = df.sort_values('DateTime').set_index('DateTime')
@@ -106,4 +106,5 @@ for alert, count in alert_conditions.items():
 # Raw data preview
 with st.expander("View Raw Data (last 1000 rows)"):
     st.dataframe(df_dashboard.tail(1000))
+
 
