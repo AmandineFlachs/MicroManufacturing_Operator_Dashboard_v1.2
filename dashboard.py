@@ -12,7 +12,7 @@ st.set_page_config(page_title="Smart Micro-Manufacturing Operator Dashboard", la
 # Title
 st.title("🏭 Smart Micro-Manufacturing Operator Dashboard")
 
-# Data loading - assumes data.csv is in the same directory as app.py
+# Data loading - assumes data.csv is in the same directory as dashboard.py
 @st.cache_data
 def load_data():
     df = pd.read_csv('data.csv')
@@ -106,5 +106,6 @@ for alert, count in alert_conditions.items():
 # Raw data preview
 with st.expander("View Raw Data (last 1000 rows)"):
     st.dataframe(df_dashboard.tail(1000))
+
 
 
